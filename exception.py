@@ -1,8 +1,16 @@
-class ShipOutException(Exception):
-    "НЕдопустимые координаты для коробля, или введенено не допостимо направлниеб или недопутсимая длина"
+class BoardException(Exception):
     pass
 
 
-class BoardOutException(Exception):
-    "Недопустимая координаты,вышли за пределы доски"
+class BoardWrongShipException(BoardException):
     pass
+
+
+class BoardOutException(BoardException):
+    def __str__(self):
+        return 'Нельзя выстрелить за пределы доски!'
+
+
+class BoardUsedException(BoardException):
+    def __str__(self):
+        return 'В эту клетку вы уже стреляли!'
